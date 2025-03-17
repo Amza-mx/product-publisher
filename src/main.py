@@ -1,11 +1,13 @@
-# Description: Main entry point for the application
-# Get the best sellers from Keepa and print the product information
+from fastapi import FastAPI
+from routes import router
 
-from services import KeepaService
+def create_app() -> FastAPI:
+    app = FastAPI()
+    app.include_router(router)
+    return app
 
-def main():
-    keepa_service = KeepaService()
-    products = keepa_service.get_best_sellers()
-    
-    for product in products:
-        print(keepa_service.extract_product_info(product))    
+app = create_app()
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
