@@ -3,6 +3,6 @@ from fastapi.routing import APIRouter
 
 router = APIRouter()
 
-@router.get("/")
+@router.get("/keepa")
 async def read_root():
-    return {"Hello": "World"}
+    return {"message": "Hello, Keepa!"}
