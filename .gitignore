@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 credentials.json
+.vscode/launch.json
+.vscode/settings.json
