@@ -1,3 +1,4 @@
+import numpy as np
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
@@ -20,8 +21,8 @@ class ProductModel(BaseModel):
             # Get the last buybox price of the product
             buybox_prices = data.get('BUY_BOX_SHIPPING', [])
             if len(buybox_prices) > 0:
-                # cast np.float64 to float
-                return float(buybox_prices[-1])  # Keepa prices are in cents
+                price = float(buybox_prices[-1]) if not np.isnan(buybox_prices[-1]) else 0
+                return price
         return 0
 
     def get_category_label(self, value) -> str:
