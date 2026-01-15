@@ -1,2 +1,2 @@
 # product-publisher
-que onci con el doci
+que once con el doce
